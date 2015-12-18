@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
         # add the PostMailer here with the method
         # you pass the user as indicated in the class in the post_mailer class
-        PostMailer.post_created(@user).deliver
+        PostMailer.post_created(@user, @post).deliver
 
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
