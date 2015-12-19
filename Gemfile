@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'prawn'
 gem 'prawn-table'
+gem 'pry'
+gem 'pry-rails', :group => :development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record

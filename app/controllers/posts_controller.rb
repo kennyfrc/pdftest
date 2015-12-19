@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_action :authenticate_user! # checks if user authenticated before logging in
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -32,7 +33,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-
         # add the PostMailer here with the method
         # you pass the user as indicated in the class in the post_mailer class
         PostMailer.post_created(@user, @post).deliver

@@ -3,6 +3,9 @@ class PostMailer < ActionMailer::Base
   # each method is a mail that you want to send
   # each method has a respective view
   def post_created(user, post) # this method is informed by the $file_names in post_mailer folder
+    
+
+
     mail(to: user.email,
         from: "fxkennyfrc@gmail.com", # if you use the gmail stmp, this will override
         subject: post.title,
