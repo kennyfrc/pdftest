@@ -24,7 +24,7 @@ class EmailRecipientsController < ApplicationController
   # POST /email_recipients
   # POST /email_recipients.json
   def create
-    @order = Order.find(1) # how to use current object?
+    @order = Order.find(params[:order_id]) # how to use current object?
     @email_recipient = EmailRecipient.new(email_recipient_params)
     @user = current_user
 
@@ -36,7 +36,7 @@ class EmailRecipientsController < ApplicationController
         current_user.save!
         PdfMailer.email_pdf(@email_recipient, @user).deliver
 
-        format.html { redirect_to @email_recipient, notice: "Successfully sent" }
+        format.html { redirect_to order_email_recipient_path(@order, @email_recipient), notice: "Successfully sent" }
         format.json { render :show, status: :created, location: @email_recipient }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class EmailRecipientsController < ApplicationController
   def update
     respond_to do |format|
       if @email_recipient.update(email_recipient_params)
-        format.html { redirect_to @email_recipient, notice: 'Email recipient was successfully updated.' }
+        format.html { redirect_to order_email_recipient_path(@order, @email_recipient), notice: 'Email recipient was successfully updated.' }
         format.json { render :show, status: :ok, location: @email_recipient }
       else
         format.html { render :edit }

@@ -1,4 +1,5 @@
-<%= form_for(@email_recipient) do |f| %>
+<%= form_for([:order, @email_recipient]) do |f| %>
+
   <% if @email_recipient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@email_recipient.errors.count, "error") %> prohibited this email_recipient from being saved:</h2>

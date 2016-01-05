@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :email_recipients
+  # resources :email_recipients
   resources :line_items
   get 'orders/emailit'
 
-  resources :orders
+  resources :orders do
+    resources :email_recipients
+  end
   root to: 'orders#index'
 
   resources :posts do

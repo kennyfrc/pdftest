@@ -23,5 +23,5 @@
 </table>
 
 <p><%= link_to "Print Receipt (PDF)", order_path(@order, format: "pdf"), class: "btn btn-default" %> </p>
-<p><%= link_to "Email Receipt (PDF)", new_email_recipient_path, class: "btn btn-default" %> </p>
+<p><%= link_to "Email Receipt (PDF)", new_order_email_recipient_path(order_id: @order.id), class: "btn btn-default" %> </p>
 <p><%= link_to "Go Back to Orders", orders_path %> </p>
