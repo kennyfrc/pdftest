@@ -1,0 +1,30 @@
+<%= form_for(@email_recipient) do |f| %>
+  <% if @email_recipient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email_recipient.errors.count, "error") %> prohibited this email_recipient from being saved:</h2>
+
+      <ul>
+      <% @email_recipient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email_recipient %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <p> Note: The PDF's already attached </p>
+  <div class="actions">
+    <%= f.submit "Send PDF Receipt" %>
+  </div>
+<% end %>

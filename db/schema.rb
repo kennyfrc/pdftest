@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105065757) do
+ActiveRecord::Schema.define(version: 20160105103937) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "email_recipients", force: :cascade do |t|
+    t.string   "email"
+    t.string   "subject"
+    t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,8 +40,10 @@ ActiveRecord::Schema.define(version: 20160105065757) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "order_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.integer  "email_recipient_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "posts", force: :cascade do |t|

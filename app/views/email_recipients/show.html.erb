@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sent To:</strong>
+  <%= @email_recipient.email %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @email_recipient.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @email_recipient.content %>
+</p>
+
+
+<%= link_to 'Go Back to Orders', orders_path %> |

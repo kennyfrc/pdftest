@@ -6,7 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-order = Order.create!(order_number: "24601")
+
+admin = User.new(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+ )
+ admin.save!
+
+
+
+order = Order.create!(order_number: "24601", user: User.find(1))
 order.line_items.create!(name: "Settlers of Catan", unit_price: 29.95, quantity: 1)
 order.line_items.create!(name: "Technodrome", unit_price: 24.99, quantity: 2)
 order.line_items.create!(name: "RailsCasts Pro Subscription", unit_price: 9.00, quantity: 1)

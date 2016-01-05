@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :email_recipients
+  resources :line_items
+  get 'orders/emailit'
+
   resources :orders
   root to: 'orders#index'
 

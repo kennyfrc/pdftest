@@ -19,4 +19,26 @@ class OrdersController < ApplicationController
       end
     end
   end
+
+  def emailit
+
+  end
+
+  def new
+    @order = Order.new
+
+  end
+
+
+  def create
+
+
+  end
+
+
+  private
+
+  def email_recipient_params
+    params.require(:email_recipient).permit(:email, :subject, :content, :user_id)
+  end
 end
